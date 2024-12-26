@@ -6,7 +6,7 @@ It will provide key loan metrics and insights into trends over time, helping to 
 ------------------------------------------------------------------------
 
 
-***Key Performance Indicators (KPIs) Requirements:***
+##***Key Performance Indicators (KPIs) Requirements:***
 
 1. **Total Loan Applications**: Calculate the total number of loan applications received during a specified period. Additionally, monitor the Month-to-Date (MTD) Loan Applications and track changes Month-over-Month (MoM).
 
