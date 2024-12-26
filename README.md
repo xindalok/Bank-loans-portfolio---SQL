@@ -1,6 +1,7 @@
 # Finance-Loans
 
-The Bank Loan Report project aims to monitor and evaluate lending activities and performance. It will provide key loan metrics and insights into trends over time, helping to track portfolio health and inform data-driven lending strategies.
+The Bank Loan Report project aims to monitor and evaluate lending activities and performance. 
+It will provide key loan metrics and insights into trends over time, helping to track portfolio health and inform data-driven lending strategies.
 
 
 ***Key Performance Indicators (KPIs) Requirements:***
