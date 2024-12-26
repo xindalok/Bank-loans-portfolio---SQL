@@ -1,4 +1,16 @@
-**Total Loan Applications**
-We need to calculate the total number of loan applications received during a specified period. Additionally, it is essential to monitor the Month-to-Date (MTD) Loan Applications and track changes Month-over-Month (MoM).
-!(images/info.png)
+**1. Original Dataset Overview**
+
+
+![](images/info.png)
+
+**2. Data Cleaning Process**
+
+```sql
+SELECT 
+	issue_date
+FROM financial_loan fl 
+WHERE issue_date !~ '^\d{2}-\d{2}-\d{4}$';
+
+
+```
 
