@@ -17,3 +17,18 @@ It will provide key loan metrics and insights into trends over time, helping to 
 5. **Average Debt-to-Income Ratio (DTI)**: Evaluate the average DTI for our borrowers to help us gauge their financial health. Compute the average DTI for all loans, MTD, and track Month-over-Month (MoM) fluctuations.
 
 
+***Good Loan v Bad Loan KPI’s***<br>
+In order to evaluate the performance of our lending activities and assess the quality of our loan portfolio
+
+Good Loan KPIs:<br>
+1. **Good Loan Application Percentage**: We need to calculate the percentage of loan applications classified as 'Good Loans.' This category includes loans with a loan status of 'Fully Paid' and 'Current.'
+2. **Good Loan Applications**: Identifying the total number of loan applications falling under the 'Good Loan' category, which consists of loans with a loan status of 'Fully Paid' and 'Current.'
+3. **Good Loan Funded Amount**: Determining the total amount of funds disbursed as 'Good Loans.' This includes the principal amounts of loans with a loan status of 'Fully Paid' and 'Current.'
+4. **Good Loan Total Received Amount**: Tracking the total amount received from borrowers for 'Good Loans,' which encompasses all payments made on loans with a loan status of 'Fully Paid' and 'Current.'
+
+Bad Loan KPIs: <br>
+1. **Bad Loan Application Percentage**: Calculating the percentage of loan applications categorized as 'Bad Loans.' This category specifically includes loans with a loan status of 'Charged Off.'
+2. **Bad Loan Applications**: Identifying the total number of loan applications categorized as 'Bad Loans,' which consists of loans with a loan status of 'Charged Off.'
+3. **Bad Loan Funded Amount**: Determining the total amount of funds disbursed as 'Bad Loans.' This comprises the principal amounts of loans with a loan status of 'Charged Off.'
+4. **Bad Loan Total Received Amount**: Tracking the total amount received from borrowers for 'Bad Loans,' which includes all payments made on loans with a loan status of 'Charged Off.'
+
