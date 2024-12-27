@@ -1,10 +1,10 @@
-**1. Original Dataset Overview**
+**Original Dataset Overview**
 
 
 ![](images/info.png)
 
-**2. Data Preprocessing** <br>
-Ensured that all relevant date columns in the financial_loan table were properly formatted and stored as DATE values. <br>
+**Data Preprocessing** <br>
+1. Ensured that all relevant date columns in the financial_loan table were properly formatted and stored as DATE values. <br>
 The process involved identifying incorrectly formatted date entries, converting them to the proper format, and altering the column data types to maintain data integrity.
 <details>
 <summary style="color: lightblue;"> Show code </summary>
