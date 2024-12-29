@@ -14,7 +14,7 @@
 Ensured that all relevant date columns in the financial_loan table were properly formatted and stored as DATE values. <br>
 The process involved identifying incorrectly formatted date entries, converting them to the proper format, and altering the column data types to maintain data integrity.
 <details>
-<summary style="color: lightblue;"> Show code </summary>
+<summary style="color: lightblue;"> ▶▶Show code </summary>
 
 ```sql
 SELECT 
@@ -51,7 +51,7 @@ ALTER COLUMN next_payment_date TYPE DATE USING TO_DATE(next_payment_date, 'YYYY-
 Extracted the first three characters from a string column and converted them to an integer using CAST and SUBSTRING functions, storing only the numeric component of the loan term.
    
 <details>
-<summary style="color: lightblue;"> Show code </summary>
+<summary style="color: lightblue;">▶▶ Show code </summary>
 ```sql
 ALTER TABLE financial_loan
 ADD COLUMN term_months INTEGER;
