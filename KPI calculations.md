@@ -3,6 +3,11 @@
 
 ![](images/info.png)
 
+#### Issues to be Addressed: <br>
+1. **Date Format Conversion:** The date columns are currently stored as VARCHAR and need to be converted to the proper DATE format.
+2. **Loan Term Extraction:** Loan terms are represented as string values (e.g., "36 months"), and the numerical component needs to be extracted for proper analysis.
+
+------------------------------------------------------------------------------
 ### Data Preprocessing <br>
 
 **Date columns**<br>
