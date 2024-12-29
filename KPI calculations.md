@@ -40,6 +40,7 @@ ALTER COLUMN last_payment_date TYPE DATE USING TO_DATE(last_payment_date, 'YYYY-
 ALTER COLUMN next_payment_date TYPE DATE USING TO_DATE(next_payment_date, 'YYYY-MM-DD');
 ```
 </details>
+<br>
 
 **Extract string** <br>
 We used an UPDATE query to populate the term_months column by extracting the first three characters from the term column and converting them into an integer using the CAST and SUBSTRING functions. This ensures that only the numeric portion of the loan term is stored.
