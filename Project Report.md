@@ -1,5 +1,7 @@
 ### Total Loan Applications
-**Objective:** Calculate total loan applications for a specified period, track MTD, and MoM changes.
+Calculate total loan applications for a specified period, track MTD, and MoM changes.
+
+<br>
 
 **Total Applications:** **38,576**
 	
@@ -24,8 +26,8 @@ SELECT
 FROM (
 SELECT 
 	EXTRACT(MONTH from issue_date) AS month_num,
-    TO_CHAR(issue_date, 'Mon') AS month,
-    COUNT(DISTINCT id) AS total_applications
+    	TO_CHAR(issue_date, 'Mon') AS month,
+    	COUNT(DISTINCT id) AS total_applications
 FROM financial_loan fl
 GROUP BY EXTRACT(MONTH from issue_date), TO_CHAR(issue_date, 'Mon')
 ORDER BY month_num
@@ -34,4 +36,4 @@ ORDER BY month_num
 ```
 </details>
 
-![](images/MoM changes.png)
+<img src="images/MoM_changes.png" width="500" height="300" />
