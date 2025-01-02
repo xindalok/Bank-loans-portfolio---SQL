@@ -408,3 +408,50 @@ FROM financial_loan fl
 </details>
 
 <img src="images/good_loans.png" width="700" height="100" />
+
+---------------------------------------
+
+- **Good Loan Funded Amount**: $370,224,850 <br> Determine the total amount of funds disbursed as 'Good Loans.'
+
+``` sql
+SELECT
+	SUM(loan_amount)
+FROM financial_loan fl
+WHERE loan_status = 'Current' OR loan_status = 'Fully Paid'
+
+ ```
+<details>
+<summary style="color: lightblue;">▶▶Click here to show code explanation ◀◀◀</summary>
+
+### SQL Code Explanation
+
+#### Query Overview:
+- **Summing Loan Amounts**:  
+  - Uses the `SUM` aggregate function to calculate the total `loan_amount` for loans meeting specific conditions.  
+
+#### Filtering with `WHERE` Clause:
+- **Loan Status Filtering**:  
+  - Filters rows based on the `loan_status` column:  
+    - Includes only loans with `loan_status = 'Current'` or `loan_status = 'Fully Paid'`.  
+    - The `OR` logical operator ensures that rows matching either condition are selected.  
+
+    ```sql
+    WHERE loan_status = 'Current' OR loan_status = 'Fully Paid'
+    ```
+
+#### Aggregate Function:
+- **Summation**:  
+  - Applies the `SUM` function to the `loan_amount` column.  
+  - Aggregates the values of `loan_amount` for the filtered rows, returning the total loan amount.  
+
+    ```sql
+    SUM(loan_amount)
+    ```
+
+#### Output:
+- Returns a single value representing the total loan amount for loans classified as either "Current" or "Fully Paid".  
+
+</details>
+
+<img src="images/gd_loan_amt.png" width="300" height="100" />
+
