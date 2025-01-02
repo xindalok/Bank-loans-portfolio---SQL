@@ -421,7 +421,7 @@ WHERE loan_status = 'Current' OR loan_status = 'Fully Paid'
 
  ```
 <details>
-<summary style="color: lightblue;">▶▶Click here to show code explanation ◀◀◀</summary>
+<summary style="color: lightblue;">▶▶Click here for code explanation ◀◀◀</summary>
 
 ### SQL Code Explanation
 
@@ -454,4 +454,52 @@ WHERE loan_status = 'Current' OR loan_status = 'Fully Paid'
 </details>
 
 <img src="images/gd_loan_amt.png" width="300" height="100" />
+
+---------------------------------------
+
+- **Good Loan received Amount**: $435,786,170 <br> Determine the total amount of funds disbursed as 'Good Loans.'
+
+``` sql
+SELECT
+	SUM(total_payment) AS good_loan_payments
+FROM financial_loan fl
+WHERE loan_status = 'Current' OR loan_status = 'Fully Paid'
+
+ ```
+<details>
+<summary style="color: lightblue;">▶▶Click here for code explanation ◀◀◀</summary>
+
+### SQL Code Explanation
+
+#### Query Overview:
+- **Summing Total Payments for Good Loans**:  
+  - `SUM` aggregate function to calculate the total `total_payment` for loans classified as "good loans."  
+  - Aliases the resulting value as `good_loan_payments` for clarity and readability.  
+
+#### Filtering with `WHERE` Clause:
+- **Loan Status Filtering**:  
+  - Filters rows based on the `loan_status` column:  
+    - Includes only loans with `loan_status = 'Current'` or `loan_status = 'Fully Paid'`.  
+    - The `OR` logical operator ensures rows satisfying either condition are included in the computation.  
+
+    ```sql
+    WHERE loan_status = 'Current' OR loan_status = 'Fully Paid'
+    ```
+
+#### Aggregate Function:
+- **Summation**:  
+  - Applies the `SUM` function to the `total_payment` column.  
+  - Aggregates the values of `total_payment` for all filtered rows, providing the cumulative amount of payments made for good loans.  
+
+    ```sql
+    SUM(total_payment) AS good_loan_payments
+    ```
+
+#### Output:
+- Returns a single value, representing the total payments made for good loans
+
+
+</details>
+
+<img src="images/loan_rcvd.png" width="300" height="100" />
 
