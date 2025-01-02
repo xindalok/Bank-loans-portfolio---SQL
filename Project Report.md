@@ -345,4 +345,66 @@ This query computes the average monthly Debt-to-Income Ratio (DTI) and tracks th
 
 </details>
 
-<img src="images/images/mom_dti.png" width="700" height="300" />
+<img src="images/mom_dti.png" width="700" height="300" />
+
+--------------------------------------------
+
+
+# Good Loan v Bad Loan KPI’s
+
+***Good Loan KPIs:***
+- **Good Loan Application Percentage**: 86.18% <br> 'Good Loans' are loans with a loan status of 'Fully Paid' and 'Current.'
+
+<details>
+<summary style="color: lightblue;">▶▶Click here to show code ◀◀◀</summary>
+
+``` sql
+SELECT 
+	good_loans,
+	total_loans,
+	ROUND(good_loans * 100.00 / total_loans,2) AS pct_good_loans
+FROM (
+SELECT 
+	COUNT(
+		CASE WHEN loan_status = 'Fully Paid' OR loan_status = 'Current'
+		THEN 'id' END) AS good_loans,
+	COUNT(id) AS total_loans
+FROM financial_loan fl 
+) AS count_good_loans
+
+ ```
+
+### SQL Code Explanation
+
+#### Subquery (`count_good_loans`):
+- **Loan Status Classification**:  
+  - Uses a `CASE` expression to classify loans as "good loans" based on their `loan_status`:  
+    - Includes loans with `loan_status = 'Fully Paid' or 'Current'`.  
+    - If the condition is met, assigns `'id'` to the `CASE` expression.  
+    - The `COUNT` function aggregates these qualified rows, returning the total number as `good_loans`.  
+
+    ```sql
+    COUNT(
+      CASE WHEN loan_status = 'Fully Paid' OR loan_status = 'Current'
+      THEN 'id' END) AS good_loans
+    ```
+
+- **Total Loan Count**:  
+  - Uses `COUNT(id)` to calculate the total number of loans in the dataset as `total_loans`.  
+
+#### Outer Query:
+- **Percentage of Good Loans**:  
+  - Calculates the percentage of good loans relative to total loans:  
+    ```sql
+    ROUND(good_loans * 100.00 / total_loans, 2) AS pct_good_loans
+    ```
+    - Multiplies `good_loans` by 100.00 to obtain a percentage.  
+    - Divides by `total_loans` for normalization.  
+    - Uses the `ROUND` function to limit the result to two decimal places for readability.  
+
+#### Aliasing:
+- The subquery is aliased as `count_good_loans`, allowing its columns (`good_loans` and `total_loans`) to be referenced in the outer query.  
+
+</details>
+
+<img src="images/good_loans.png" width="700" height="100" />
