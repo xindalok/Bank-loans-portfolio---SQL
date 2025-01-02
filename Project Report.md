@@ -14,7 +14,7 @@ FROM financial_loan fl;
 Calculate monthly totals and Month-over-Month (MoM) changes using a subquery and window functions.
 
 <details>
-<summary style="color: lightblue;">▶▶Click to show code ◀◀◀</summary>
+<summary style="color: lightblue;">▶▶Click here to show code ◀◀◀</summary>
 	
 ```sql
 SELECT 
@@ -87,7 +87,7 @@ FROM financial_loan fl ;
 **Total funded amount MoM changes:** <br>
 Calculate monthly totals and Month-over-Month (MoM) changes using a subquery and window functions.
 <details>
-<summary style="color: lightblue;">▶▶Click to show code ◀◀◀</summary>
+<summary style="color: lightblue;">▶▶Click here to show code ◀◀◀</summary>
 	
 ``` sql
 SELECT 
@@ -150,7 +150,7 @@ SELECT SUM(total_payment) AS total_received FROM financial_loan fl;
 Calculate monthly totals and Month-over-Month (MoM) changes using a subquery and window functions.
 
 <details>
-<summary style="color: lightblue;">▶▶Click to show code ◀◀◀</summary>
+<summary style="color: lightblue;">▶▶Click here to show code ◀◀◀</summary>
 	
 ```sql
 SELECT 
