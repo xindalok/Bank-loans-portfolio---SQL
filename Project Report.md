@@ -40,7 +40,9 @@ ORDER BY month_num
 #### Subquery (`ordered_month`):
 - **Month Extraction**:  
   - Extracts the numerical month using `EXTRACT(MONTH FROM issue_date) AS month_num`.  
-  - Extracts the abbreviated month name using `TO_CHAR(issue_date, 'Mon') AS month`.  
+  - Extracts the abbreviated month name using `TO_CHAR(issue_date, 'Mon') AS month`.
+  - This allows chronological ordering by month.
+
 
 - **Grouping and Ordering**:  
   Groups the data by `month_num` and `month` to ensure unique monthly aggregations.  
@@ -219,3 +221,128 @@ Calculate the average interest rate across all loans and MoM changes.
 ```sql
 SELECT ROUND(AVG(int_rate)::NUMERIC,4) FROM financial_loan fl
 ```
+**Average interest rate MoM:** <br>
+Calculate average interest and Month-over-Month (MoM) changes using a subquery and window LAG function.
+
+<details>
+<summary style="color: lightblue;">▶▶Click here to show code ◀◀◀</summary>
+	
+```sql
+SELECT 
+	month_num,
+	month,
+	avg_monthly_int, 
+	ROUND((avg_monthly_int - (LAG(avg_monthly_int) OVER(ORDER BY month_num))),4) AS mom_pct_change
+FROM (
+SELECT 
+	EXTRACT(MONTH from issue_date) AS month_num,
+	TO_CHAR(issue_date, 'Mon') AS month,
+	ROUND(AVG(int_rate)::NUMERIC,4) AS avg_monthly_int
+FROM financial_loan fl 
+GROUP BY EXTRACT(MONTH from issue_date), TO_CHAR(issue_date, 'Mon')
+ORDER BY month_num, month
+) AS mthly_int
+```
+
+### SQL Code Explanation
+
+#### Subquery (`mthly_int`):
+- **Month Extraction**:  
+  - Extracts the numerical month using `EXTRACT(MONTH FROM issue_date) AS month_num`.  
+  - Extracts the abbreviated month name using `TO_CHAR(issue_date, 'Mon') AS month`.
+  - This allows chronological ordering by month.
+  
+- **Average Monthly Interest Rate**:  
+  - Calculates the average interest rate for each month using:  
+    ```sql
+    ROUND(AVG(int_rate)::NUMERIC, 4) AS avg_monthly_int
+    ```  
+  - This averages the `int_rate` column values, rounding the result to four decimal places to get the `avg_monthly_int`.
+  
+- **Grouping and Ordering**:  
+  - Groups the data by `month_num` and `month` to ensure unique monthly aggregations.  
+  - Orders by `month_num` to maintain chronological order of the months.
+  
+#### Outer Query:
+- **Month-over-Month (MoM) Change**:  
+  - Calculates the MoM change in the average interest rate using the `LAG` window function:  
+    ```sql
+    ROUND((avg_monthly_int - (LAG(avg_monthly_int) OVER(ORDER BY month_num))), 4) AS mom_pct_change
+    ```  
+  - The `LAG` function retrieves the previous month's `avg_monthly_int` for each row, and the difference is computed to find the MoM change.
+  - The result is rounded to four decimal places.
+
+#### Final Output:
+- **Ordering**:  
+  - The final output is sorted by `month_num` in ascending order to maintain chronological order of the months.
+  
+This structure ensures that the average monthly interest rate is calculated per month and that the MoM percentage change is correctly computed.
+
+</details>
+
+<img src="images/mom_int.png" width="700" height="300" />
+
+--------------------------------------------
+
+### Average Debt-to-Income Ratio (DTI)
+Evaluate the average DTI of borrowers, track Month-over-Month (MoM) fluctuations.
+
+**Average DTI: 13.33% / 0.1333**
+```sql
+SELECT ROUND(AVG(dti)::NUMERIC,4) AS avg_dti FROM financial_loan fl 
+```
+**Average DTI MoM changes:** <br>
+Calculate monthly average and Month-over-Month (MoM) changes using a subquery and window LAG function.
+
+<details>
+<summary style="color: lightblue;">▶▶Click here to show code ◀◀◀</summary>
+
+``` sql
+SELECT
+	month_num,
+	month,
+	avg_dti,
+	avg_dti - (LAG(avg_dti) OVER(ORDER BY month_num)) AS pct_mom_change
+FROM (
+SELECT 
+	EXTRACT(MONTH FROM issue_date) AS month_num,
+	TO_CHAR(issue_date, 'Mon') AS month,
+	ROUND(AVG(dti)::NUMERIC,4) AS avg_dti
+FROM financial_loan fl 
+GROUP BY EXTRACT(MONTH FROM issue_date), TO_CHAR(issue_date, 'Mon')
+ORDER BY month_num, month
+) AS mnthly_dti
+ ```
+
+### SQL Code Explanation
+
+#### Subquery (`mnthly_dti`):
+- **Month Extraction**:  
+  - Extracts the numerical month using `EXTRACT(MONTH FROM issue_date) AS month_num`.  
+  - Extracts the abbreviated month name using `TO_CHAR(issue_date, 'Mon') AS month`.
+  - This allows chronological ordering by month.
+  - 
+- **Debt-to-Income Ratio (DTI) Calculation**:  
+  - The average is rounded to four decimal places, using `ROUND(AVG(dti)::NUMERIC, 4) AS avg_dti`.
+
+- **Grouping and Ordering**:  
+  - Groups the data by `month_num` and `month` to calculate the monthly average DTI.  
+  - Orders the results by `month_num` and `month` to maintain chronological order.
+
+#### Outer Query:
+- **Month-over-Month (MoM) Percentage Change in DTI**:  
+  - Calculates the absolute MoM change in the average DTI using:  
+    ```sql
+    avg_dti - (LAG(avg_dti) OVER(ORDER BY month_num)) AS pct_mom_change
+    ```  
+  - The `LAG` window function retrieves the previous month's `avg_dti` for each row.  
+  - Subtracting the previous month's `avg_dti` from the current month's `avg_dti` gives the change.  
+
+#### Ordering:
+- The final output is sorted by `month_num` in ascending order to ensure the data is presented in chronological order.
+
+This query computes the average monthly Debt-to-Income Ratio (DTI) and tracks the month-over-month changes to highlight trends in borrower debt levels over time.
+
+</details>
+
+<img src="images/images/mom_dti.png" width="700" height="300" />
