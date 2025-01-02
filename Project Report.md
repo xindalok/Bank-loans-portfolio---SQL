@@ -208,3 +208,14 @@ ORDER BY EXTRACT(MONTH from issue_date),TO_CHAR(issue_date,'Mon')
 </details>
 
 <img src="images/mom_amt_received.png" width="700" height="300" />
+
+--------------------------------------------
+
+### Average interest rate
+Calculate the average interest rate across all loans and MoM changes.
+
+**Average interest rate: 12.05% / 0.1205**
+
+```sql
+SELECT ROUND(AVG(int_rate)::NUMERIC,4) FROM financial_loan fl
+```
