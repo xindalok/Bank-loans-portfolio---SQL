@@ -30,7 +30,20 @@ In order to evaluate the performance of our lending activities and assess the qu
 
 ***Bad Loan KPIs:***
 1. **Bad Loan Application Percentage**: Calculating the percentage of loan applications categorized as 'Bad Loans.' This category specifically includes loans with a loan status of 'Charged Off.'
-2. **Bad Loan Applications**: Identifying the total number of loan applications categorized as 'Bad Loans,' which consists of loans with a loan status of 'Charged Off.'
-3. **Bad Loan Funded Amount**: Determining the total amount of funds disbursed as 'Bad Loans.' This comprises the principal amounts of loans with a loan status of 'Charged Off.'
-4. **Bad Loan Total Received Amount**: Tracking the total amount received from borrowers for 'Bad Loans,' which includes all payments made on loans with a loan status of 'Charged Off.'
+2. **Bad Loan Funded Amount**: Determining the total amount of funds disbursed as 'Bad Loans.' This comprises the principal amounts of loans with a loan status of 'Charged Off.'
+3. **Bad Loan Total Received Amount**: Tracking the total amount received from borrowers for 'Bad Loans,' which includes all payments made on loans with a loan status of 'Charged Off.'
+
+------------------------------------------------------------------------
+<br>
+
+### Loan Status Grid View Report
+
+The **Loan Status Grid View** report categorizes loans by status, providing key metrics for monitoring portfolio performance:
+
+- **Total Loan Applications**  
+- **Total Funded Amount** & **Total Amount Received**  
+- **Month-to-Date (MTD) Funded Amount** & **MTD Amount Received**  
+- **Average Interest Rate** & **Debt-to-Income Ratio (DTI)**  
+
+This report enables data-driven decisions and a clear assessment of portfolio health.
 
