@@ -643,7 +643,7 @@ ORDER BY loan_applications DESC
 <br>
 
 #### MTD:
-<img src="images/mtd_report.png" width="700" height="100" />
+<img src="images/mtd_report.png" width="500" height="100" />
 
 ``` sql
 SELECT 
