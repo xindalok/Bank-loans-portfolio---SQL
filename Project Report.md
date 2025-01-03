@@ -3,14 +3,16 @@ Calculate total loan applications, track MTD and MoM changes.
 
 <br>
 
-**Total Applications: 38,576**
+**1. Total Applications: 38,576**
 	
 ```sql
 SELECT COUNT(DISTINCT id) AS total_applications 
 FROM financial_loan fl;
 ```
+<br>
+<br>
 
-**Total Applications MoM changes:** <br>
+**2. Total Applications MoM changes:** <br>
 Calculate monthly totals and Month-over-Month (MoM) changes using a subquery and window functions.
 
 <details>
@@ -75,18 +77,24 @@ ORDER BY month_num
 
 <img src="images/MoM_changes.png" width="700" height="300" />
 
+<br>
+<br>
+
 ---------------------------------------------
 
 ### Total Funded Amount
 Calculate total funded amount, track MTD and MoM changes.
 
-**Total funded amount: $435,757,075**
+**1. Total funded amount: $435,757,075**
 ```sql
 SELECT 
 	SUM(loan_amount) 
 FROM financial_loan fl ;
 ```
-**Total funded amount MoM changes:** <br>
+<br>
+<br>
+
+**2. Total funded amount MoM changes:** <br>
 Calculate monthly totals and Month-over-Month (MoM) changes using a subquery and window functions.
 <details>
 <summary style="color: lightblue;">▶▶Click here to show code ◀◀◀</summary>
@@ -109,7 +117,7 @@ ORDER BY EXTRACT(MONTH from issue_date),TO_CHAR(issue_date,'Mon')
 ) AS loan_month
 ```
 
-### Explanation of the SQL Code
+### Explanation of SQL Code
 
 #### Inner Query:
 - **Aggregation**:  
@@ -135,6 +143,9 @@ ORDER BY EXTRACT(MONTH from issue_date),TO_CHAR(issue_date,'Mon')
 
 <img src="images/mom_loan_amt.png" width="700" height="300" />
 
+<br>
+<br>
+
 --------------------------------------------
 
 ### Total amount received
@@ -142,13 +153,15 @@ Calculate total monthly amount received, track MTD and MoM changes.
 
 <br>
 
-**Total amount received: $473,070,933**
+**1. Total amount received: $473,070,933**
 	
 ```sql
 SELECT SUM(total_payment) AS total_received FROM financial_loan fl;
 ```
+<br>
+<br>
 
-**Total Applications MoM changes:** <br>
+**2. Total Applications MoM changes:** <br>
 Calculate monthly totals and Month-over-Month (MoM) changes using a subquery and window functions.
 
 <details>
@@ -206,22 +219,27 @@ ORDER BY EXTRACT(MONTH from issue_date),TO_CHAR(issue_date,'Mon')
 #### Ordering:
 - The final output is sorted by `month_num` in ascending order to maintain chronological order.
 
-
 </details>
 
 <img src="images/mom_amt_received.png" width="700" height="300" />
+
+<br>
+<br>
 
 --------------------------------------------
 
 ### Average interest rate
 Calculate the average interest rate across all loans and MoM changes.
 
-**Average interest rate: 12.05% / 0.1205**
+**1. Average interest rate: 12.05% / 0.1205**
 
 ```sql
 SELECT ROUND(AVG(int_rate)::NUMERIC,4) FROM financial_loan fl
 ```
-**Average interest rate MoM:** <br>
+<br>
+<br>
+
+**2. Average interest rate MoM:** <br>
 Calculate average interest and Month-over-Month (MoM) changes using a subquery and window LAG function.
 
 <details>
@@ -275,23 +293,27 @@ ORDER BY month_num, month
 #### Final Output:
 - **Ordering**:  
   - The final output is sorted by `month_num` in ascending order to maintain chronological order of the months.
-  
-This structure ensures that the average monthly interest rate is calculated per month and that the MoM percentage change is correctly computed.
 
 </details>
 
 <img src="images/mom_int.png" width="700" height="300" />
+
+<br>
+<br>
 
 --------------------------------------------
 
 ### Average Debt-to-Income Ratio (DTI)
 Evaluate the average DTI of borrowers, track Month-over-Month (MoM) fluctuations.
 
-**Average DTI: 13.33% / 0.1333**
+**1. Average DTI: 13.33% / 0.1333**
 ```sql
 SELECT ROUND(AVG(dti)::NUMERIC,4) AS avg_dti FROM financial_loan fl 
 ```
-**Average DTI MoM changes:** <br>
+<br>
+<br>
+
+**2. Average DTI MoM changes:** <br>
 Calculate monthly average and Month-over-Month (MoM) changes using a subquery and window LAG function.
 
 <details>
@@ -341,11 +363,12 @@ ORDER BY month_num, month
 #### Ordering:
 - The final output is sorted by `month_num` in ascending order to ensure the data is presented in chronological order.
 
-This query computes the average monthly Debt-to-Income Ratio (DTI) and tracks the month-over-month changes to highlight trends in borrower debt levels over time.
-
 </details>
 
 <img src="images/mom_dti.png" width="700" height="300" />
+
+<br>
+<br>
 
 --------------------------------------------
 
@@ -353,7 +376,7 @@ This query computes the average monthly Debt-to-Income Ratio (DTI) and tracks th
 # Good Loan v Bad Loan KPI’s
 
 ***Good Loan KPIs:***
-- **Good Loan Application Percentage**: 86.18% <br> 'Good Loans' are loans with a loan status of 'Fully Paid' and 'Current.'
+- **1. Good Loan Application Percentage: 86.18%** <br> Loan status of 'Fully Paid' and 'Current.'
 
 <details>
 <summary style="color: lightblue;">▶▶Click here to show code ◀◀◀</summary>
@@ -399,19 +422,16 @@ FROM financial_loan fl
     ROUND(good_loans * 100.00 / total_loans, 2) AS pct_good_loans
     ```
     - Multiplies `good_loans` by 100.00 to obtain a percentage.  
-    - Divides by `total_loans` for normalization.  
     - Uses the `ROUND` function to limit the result to two decimal places for readability.  
-
-#### Aliasing:
-- The subquery is aliased as `count_good_loans`, allowing its columns (`good_loans` and `total_loans`) to be referenced in the outer query.  
 
 </details>
 
 <img src="images/good_loans.png" width="700" height="100" />
 
----------------------------------------
+<br>
+<br>
 
-- **Good Loan Funded Amount**: $370,224,850 <br> Determine the total amount of funds disbursed as 'Good Loans.'
+- **2. Good Loan Funded Amount: $370,224,850** <br> Determine the total amount of funds disbursed as 'Good Loans.'
 
 ``` sql
 SELECT
@@ -455,9 +475,10 @@ WHERE loan_status = 'Current' OR loan_status = 'Fully Paid'
 
 <img src="images/gd_loan_amt.png" width="300" height="100" />
 
----------------------------------------
+<br>
+<br>
 
-- **Good Loan received Amount**: $435,786,170 <br> Determine the total amount of funds disbursed as 'Good Loans.'
+- **3. Good Loan received Amount: $435,786,170** <br> Determine the total amount of funds disbursed as 'Good Loans.'
 
 ``` sql
 SELECT
@@ -502,4 +523,135 @@ WHERE loan_status = 'Current' OR loan_status = 'Fully Paid'
 </details>
 
 <img src="images/loan_rcvd.png" width="300" height="100" />
+<br>
+<br>
 
+----------------------------
+***Bad Loan KPIs:***
+
+**1. Bad Loan Application Percentage: 13.82%** <br>
+Loan status of 'Charged Off.'
+
+<details>
+<summary style="color: lightblue;">▶▶Click here to show code ◀◀◀</summary>
+
+``` sql
+SELECT 
+	bad_loans,
+	total_loans,
+	ROUND((bad_loans * 100.00 / total_loans),2) AS pct_bad_loans
+FROM (
+SELECT 
+	COUNT(
+		CASE WHEN loan_status = 'Charged Off' THEN 'id' END) AS bad_loans,
+	COUNT(id) AS total_loans
+FROM financial_loan fl 
+) AS count_bad_loans
+
+ ```
+### SQL Code Explanation
+
+#### Subquery (`count_bad_loans`):
+- **Loan Status Classification**:  
+  - Utilizes a `CASE` expression to classify loans as "bad loans" based on their `loan_status`:  
+    - Includes loans with `loan_status = 'Charged Off'`.  
+    - If the condition is met, assigns `'id'` to the `CASE` expression.  
+    - The `COUNT` function aggregates these qualified rows, producing the total number of "bad loans" as `bad_loans`.  
+
+    ```sql
+    COUNT(
+      CASE WHEN loan_status = 'Charged Off' THEN 'id' END) AS bad_loans
+    ```
+
+- **Total Loan Count**:  
+  - Uses `COUNT(id)` to calculate the total number of loans in the dataset as `total_loans`.  
+
+#### Outer Query:
+- **Percentage of Bad Loans**:  
+  - Calculates the percentage of bad loans relative to the total loans:  
+    ```sql
+    ROUND((bad_loans * 100.00 / total_loans), 2) AS pct_bad_loans
+    ```
+    - The `ROUND` function ensures the result is rounded to two decimal places for readability.  
+
+
+
+#### Output:
+- The query returns three columns:  
+  - `bad_loans`: The count of loans classified as "bad."  
+  - `total_loans`: The total number of loans.  
+  - `pct_bad_loans`: The percentage of bad loans, rounded to two decimal places.  
+
+</details>
+
+<img src="images/bad_loans_pct.png" width="700" height="100" />
+<br>
+<br>
+
+**2. Bad loans amount: $65,532,225** <br> Determining the total amount of funds disbursed as 'Bad Loans.'
+
+``` sql
+SELECT 
+	SUM(loan_amount) AS bad_loans_amount
+FROM financial_loan fl 
+WHERE loan_status = 'Charged Off'
+```
+
+<img src="images/bad_loan_amt" width="300" height="100" />
+<br>
+<br>
+
+**3. Bad Loan Total Received Amount: $37,284,763** <br> Total amount received from borrowers for 'Bad Loans'
+
+``` sql
+SELECT 
+	SUM(total_payment) AS bad_loans_received
+FROM financial_loan fl 
+WHERE loan_status = 'Charged Off'
+```
+<br>
+
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+<br>
+
+### Loan Status Grid View Report
+
+Categorize loans by status, providing key metrics for monitoring portfolio performance for a clear assessment of portfolio health.:
+
+- **Total Loan Applications**  
+- **Total Funded Amount** & **Total Amount Received**  
+- **Month-to-Date (MTD) Funded Amount** & **MTD Amount Received**  
+- **Average Interest Rate** & **Debt-to-Income Ratio (DTI)**
+<br>
+
+#### Totals:
+<img src="images/report.png" width="1200" height="100" />
+
+``` sql
+SELECT 
+	loan_status, 
+	COUNT(id) AS loan_applications,
+	SUM(loan_amount) AS total_funded_amt,
+	SUM(total_payment) AS total_payment_received,
+	ROUND(AVG(int_rate * 100)::NUMERIC,2) AS avg_int_rate_pct,
+	ROUND(AVG(dti * 100)::NUMERIC,2)  AS avg_dti_pct
+FROM financial_loan fl 
+GROUP BY loan_status
+ORDER BY loan_applications DESC
+```
+<br>
+
+#### MTD:
+<img src="images/mtd_report.png" width="700" height="100" />
+
+``` sql
+SELECT 
+	loan_status, 
+	SUM(loan_amount) AS  mtd_total_funded,
+	SUM(total_payment) AS mtd_total_amt_received
+FROM financial_loan fl2 
+WHERE EXTRACT(MONTH FROM issue_date) = (SELECT MAX(EXTRACT(MONTH from issue_date)) FROM financial_loan fl)
+GROUP BY loan_status
+ORDER BY mtd_total_funded DESC
+```
