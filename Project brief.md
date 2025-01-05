@@ -47,3 +47,44 @@ The **Loan Status Grid View** report categorizes loans by status, providing key 
 
 This report enables data-driven decisions and a clear assessment of portfolio health.
 
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+
+## Report 2: Key loan metrics
+
+Analyse key loan metrics and trends, providing a clear understanding of lending operations and uncovering critical insights.
+
+
+
+### 1. Monthly Trends by Issue Date  
+Identify seasonality and long-term lending trends.  
+* _**Metrics**: Total Loan Applications, Total Funded Amount, Total Amount Received_
+
+
+
+### 2. Regional Analysis by State  
+Analyze lending activity across states to identify regions with significant activity and assess regional disparities.  
+* _**Metrics**: Total Loan Applications, Total Funded Amount, Total Amount Received_
+
+
+
+### 3. Loan Term Analysis  
+Show loan distribution based on term lengths, providing insights into the popularity and performance of different loan terms.  
+* _**Metrics**: Total Loan Applications, Total Funded Amount, Total Amount Received_
+
+
+
+### 4. Employment Length Analysis  
+How lending metrics vary among borrowers with different employment lengths to understand the impact of employment history on loan behavior.  
+* _**Metrics**: Total Loan Applications, Total Funded Amount, Total Amount Received_
+
+
+### 5. Loan Purpose Breakdown  
+Provide a detailed breakdown of loans based on their stated purposes to understand why borrowers seek financing.  
+* _**Metrics**: Total Loan Applications, Total Funded Amount, Total Amount Received_
+
+
+### 6. Home Ownership Analysis  
+Categorize loan metrics by home ownership status to assess its influence on loan applications and disbursements.  
+* _**Metrics**: Total Loan Applications, Total Funded Amount, Total Amount Received_  
+
