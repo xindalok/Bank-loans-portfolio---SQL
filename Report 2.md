@@ -80,3 +80,27 @@ ORDER BY emp_length_trimmed, emp_length
 ```
 
 <img src="images/emp_l.png" width="900" height="300" />
+
+### 5. Top 10 Income brackets with highest % of Bad loans
+How loan performance varies across different income brackets to assess the relationship between annual income and loan behavior.
+
+``` sql
+SELECT 
+	rounded_income,
+	COUNT(ID) AS loan_applications,
+	ROUND(COUNT(CASE WHEN loan_status = 'Charged Off' THEN 'id' END) / COUNT(ID)::NUMERIC *100,2) AS pct_bad_loans,
+	ROUND(AVG(loan_amount),0) AS avg_loan_amount,
+	SUM(CASE WHEN loan_status = 'Charged Off' THEN loan_amount END) AS bad_loan_amount
+FROM (
+SELECT 
+	*,
+	ROUND(annual_income,-3) AS rounded_income
+FROM financial_loan fl 
+) AS income_bracket
+GROUP BY rounded_income
+HAVING COUNT(ID) >= 5
+ORDER BY pct_bad_loans DESC, avg_loan_amount DESC, loan_applications DESC
+LIMIT 10
+```
+
+<img src="images/income_bracket.png" width="900" height="300" />
