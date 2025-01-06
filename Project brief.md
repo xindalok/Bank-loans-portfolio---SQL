@@ -50,7 +50,7 @@ This report enables data-driven decisions and a clear assessment of portfolio he
 ------------------------------------------------------------------------
 ------------------------------------------------------------------------
 
-## Report 2: Key loan metrics
+## Key loan metrics
 
 Analyse key loan metrics and trends, providing a clear understanding of lending operations and uncovering critical insights.
 
