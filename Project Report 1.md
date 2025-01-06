@@ -1,3 +1,5 @@
+# Overview KPIs
+
 ### Total Loan Applications
 Calculate total loan applications, track MTD and MoM changes.
 
@@ -13,7 +15,7 @@ FROM financial_loan fl;
 <br>
 
 **2. Total Applications MoM changes:** <br>
-Calculate monthly totals and Month-over-Month (MoM) changes using a subquery and window functions.
+Month-over-month trend analysis using SQL window functions.
 
 <details>
 <summary style="color: lightblue;">▶▶Click here to show code ◀◀◀</summary>
@@ -39,39 +41,18 @@ ORDER BY month_num
 
 ### SQL Code Explanation
 
-#### Subquery (`ordered_month`):
-- **Month Extraction**:  
-  - Extracts the numerical month using `EXTRACT(MONTH FROM issue_date) AS month_num`.  
-  - Extracts the abbreviated month name using `TO_CHAR(issue_date, 'Mon') AS month`.
-  - This allows chronological ordering by month.
+### Explanation of Code
+
+1. **Aggregation and Month Extraction**: <br>
+The inner query calculates monthly loan totals (`SUM(loan_amount) AS total_monthly_loan`) and extracts numeric and textual month values using `EXTRACT(MONTH)` and `TO_CHAR`.  
+2. **Chronological Ordering**: <br>
+Results are grouped and ordered by month_num to maintain the timeline.
+4. **MoM Absolute Change**: <br>
+The outer query calculates `mom_change` using `LAG(total_monthly_loan)` to fetch the previous month’s total.
+6. **MoM Percentage Change**: <br>
+Computes `mom_pct_change` by dividing `mom_change` by the prior month’s loan total and rounding it.
 
 
-- **Grouping and Ordering**:  
-  Groups the data by `month_num` and `month` to ensure unique monthly aggregations.  
-  Orders by `month_num` to maintain chronological order.  
-
-- **Loan Application Count**:  
-  Counts distinct loan application IDs for each month with `COUNT(DISTINCT id) AS total_applications`.  
-
-#### Outer Query:
-- **Absolute Month-over-Month (MoM) Change**:  
-  - Calculates the MoM change using the `LAG` window function:  
-    ```sql
-    (total_applications - LAG(total_applications) OVER (ORDER BY month_num))::NUMERIC AS mom_change
-    ```  
-  - The `LAG` function retrieves the previous month's `total_applications` for each row, and the difference is cast to `NUMERIC`.
-
-- **Percentage MoM Change**:  
-  - Computes the percentage MoM change:  
-    ```sql
-    ROUND((total_applications - LAG(total_applications) OVER (ORDER BY month_num))::NUMERIC / (LAG(total_applications) OVER (ORDER BY month_num)), 4) AS mom_pct_change
-    ```  
-  - The difference in applications is divided by the previous month's total.  
-  - The result is rounded to four decimal places.  
-  - The `LAG` function ensures the calculation references the correct preceding row.  
-
-#### Ordering:
-- The final output is sorted by `month_num` in ascending order to maintain chronological order.
 
 </details>
 
@@ -121,23 +102,27 @@ ORDER BY EXTRACT(MONTH from issue_date),TO_CHAR(issue_date,'Mon')
 
 #### Inner Query:
 - **Aggregation**:  
-  Aggregates loan data by month using `SUM(loan_amount)` to calculate `total_monthly_loan` for each month.  
+  The loan data is aggregated by month using `SUM(loan_amount)`, calculating the `total_monthly_loan` for each month.
+
 - **Month Extraction**:  
-  - Uses `EXTRACT(MONTH FROM issue_date)` to extract the numeric month (`month_num`).  
-  - Uses `TO_CHAR(issue_date, 'Mon')` to extract the textual representation of the month (`month`).  
+  - `EXTRACT(MONTH FROM issue_date)` is used to extract the numeric representation of the month (`month_num`).
+  - `TO_CHAR(issue_date, 'Mon')` is used to extract the textual representation of the month (`month`).
+
 - **Grouping and Ordering**:  
-  Groups by both the numeric (`month_num`) and textual (`month`) month representations for aggregation.  
-  Orders the results by `month_num` to maintain chronological order.  
+  The query groups by both the numeric (`month_num`) and textual (`month`) month representations.  
+  It then orders the results by `month_num` to ensure the data is sorted chronologically.
 
 #### Outer Query:
 - **Absolute Month-over-Month (MoM) Change**:  
-  Calculates the absolute MoM change (`mom_change`) using the `LAG` window function to access the previous month's `total_monthly_loan`.  
+  The absolute MoM change (`mom_change`) is calculated using the `LAG()` window function. This function accesses the `total_monthly_loan` value from the previous month.
+
 - **Percentage MoM Change**:  
-  Computes the percentage MoM change (`mom_pct_change`) by dividing `mom_change` by the previous month's value (`LAG(total_monthly_loan)`) and rounding the result to four decimal places.  
+  The percentage MoM change (`mom_pct_change`) is computed by dividing the absolute change (`mom_change`) by the previous month's value, using `LAG(total_monthly_loan)`. The result is rounded to four decimal places.
 
 #### Window Function:
-- **Usage of `LAG`**:  
-  The `LAG` window function is applied with `OVER(ORDER BY month_num)` to fetch the value of `total_monthly_loan` from the previous row based on chronological order (`month_num`).  
+- **Usage of `LAG()`**:  
+  The `LAG()` window function is applied with `OVER(ORDER BY month_num)` to retrieve the `total_monthly_loan` from the previous row, allowing comparisons across months in chronological order.
+
 
 </details>
 
@@ -216,9 +201,6 @@ ORDER BY EXTRACT(MONTH from issue_date),TO_CHAR(issue_date,'Mon')
   - The result is cast to `NUMERIC` and rounded to four decimal places.  
   - The `LAG` function ensures the calculation references the correct preceding row.  
 
-#### Ordering:
-- The final output is sorted by `month_num` in ascending order to maintain chronological order.
-
 </details>
 
 <img src="images/mom_amt_received.png" width="700" height="300" />
@@ -289,10 +271,6 @@ ORDER BY month_num, month
     ```  
   - The `LAG` function retrieves the previous month's `avg_monthly_int` for each row, and the difference is computed to find the MoM change.
   - The result is rounded to four decimal places.
-
-#### Final Output:
-- **Ordering**:  
-  - The final output is sorted by `month_num` in ascending order to maintain chronological order of the months.
 
 </details>
 
