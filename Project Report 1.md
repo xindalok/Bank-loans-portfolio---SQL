@@ -213,7 +213,7 @@ ORDER BY EXTRACT(MONTH from issue_date),TO_CHAR(issue_date,'Mon')
 ### Average interest rate
 Calculate the average interest rate across all loans and MoM changes.
 
-**1. Average interest rate: 12.05% / 0.1205**
+**1. Average interest rate: 12.05%**
 
 ```sql
 SELECT ROUND(AVG(int_rate)::NUMERIC,4) FROM financial_loan fl
@@ -284,7 +284,7 @@ ORDER BY month_num, month
 ### Average Debt-to-Income Ratio (DTI)
 Evaluate the average DTI of borrowers, track Month-over-Month (MoM) fluctuations.
 
-**1. Average DTI: 13.33% / 0.1333**
+**1. Average DTI: 13.33%**
 ```sql
 SELECT ROUND(AVG(dti)::NUMERIC,4) AS avg_dti FROM financial_loan fl 
 ```
