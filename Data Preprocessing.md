@@ -1,7 +1,7 @@
 ### Original Dataset Overview
 
 
-![](images/info.png)
+<img src="images/info.png" width="800" height="500" />
 
 #### Issues to be Addressed: <br>
 1. **Date Format Conversion:** The date columns are currently stored as VARCHAR and need to be converted to the proper DATE format.
@@ -10,9 +10,12 @@
 ------------------------------------------------------------------------------
 ### Data Preprocessing <br>
 
-**Date columns**<br>
-Ensured that all relevant date columns in the financial_loan table were properly formatted and stored as DATE values. <br>
-The process involved identifying incorrectly formatted date entries, converting them to the proper format, and altering the column data types to maintain data integrity.
+- **Date Columns**  
+  - Ensured all relevant date columns in the `financial_loan` table were properly formatted as DATE values.  
+  - Identified and corrected incorrectly formatted date entries.  
+  - Converted dates to the correct format.  
+  - Updated column data types to maintain data integrity. 
+
 <details>
 <summary style="color: lightblue;"> ▶▶Show code </summary>
 
@@ -47,11 +50,13 @@ ALTER COLUMN next_payment_date TYPE DATE USING TO_DATE(next_payment_date, 'YYYY-
 </details>
 <br>
 
-**Extract string** <br>
-Extracted the first three characters from a string column and converted them to an integer using CAST and SUBSTRING functions, storing only the numeric component of the loan term.
-   
+- **Extracting String Data**  
+  - Extracted the first three characters from a string column using the `SUBSTRING` function.  
+  - Converted the extracted characters into integers using the `CAST` function.  
+  - Stored only the numeric component of the loan term for further processing.  
 <details>
 <summary style="color: lightblue;">▶▶ Show code </summary>
+	
 ```sql
 ALTER TABLE financial_loan
 ADD COLUMN term_months INTEGER;
@@ -60,3 +65,10 @@ UPDATE financial_loan
 SET term_months = CAST(SUBSTRING(term FROM 1 FOR 3) AS INTEGER);
 ```
 </details> 
+
+------------------------------------------------------------------------------
+
+
+### Updated Dataset Overview
+
+<img src="images/corrected.png" width="800" height="600" />
