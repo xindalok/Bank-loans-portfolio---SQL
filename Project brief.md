@@ -1,6 +1,6 @@
-# Finance-Loans
+# Bank Loans Report
 
-The Bank Loan Report project aims to monitor and evaluate lending activities and performance. <br>
+Monitor and evaluate lending activities and performance through this Bank Loan report.<br>
 It will provide key loan metrics and insights into trends over time, helping to track portfolio health and inform data-driven lending strategies.
 
 ------------------------------------------------------------------------
