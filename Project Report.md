@@ -1,6 +1,7 @@
 - [SQL functions used](-kpis)
   	- [EXTRACT date](#total-applications-mom-changes)
 	- [GROUP BY](#total-applications-mom-changes)
+   	- [ORDER BY](#total-applications-mom-changes)
    	- [Sub-query](#total-funded-amount-mom-changes)
    	- [Window function](#total-received-amount-mom-changes)
    	- [LIMIT](#top-10-income-brackets-with-highest-percentage-of-bad-loans)
