@@ -1,3 +1,7 @@
+- [SQL functions used](-kpis)
+	- [SQL functions used]()
+
+
 # Overview KPIs
 
 ### Total Loan Applications
@@ -14,7 +18,9 @@ FROM financial_loan fl;
 <br>
 <br>
 
-**2. Total Applications MoM changes:** <br>
+#### 2. Total Applications MoM changes:
+<br>
+
 Month-over-month trend analysis using SQL window functions.
 
 <details>
