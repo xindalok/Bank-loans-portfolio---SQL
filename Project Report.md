@@ -1,5 +1,6 @@
 - [SQL functions used](-kpis)
 	- [GROUP BY](#total-applications-mom-changes)
+   	- [Sub-query](#total-funded-amount-mom-changes)
 
 
 # Overview KPIs
@@ -71,7 +72,7 @@ Computes `mom_pct_change` by dividing `mom_change` by the prior month’s loan t
 ### Total Funded Amount
 Calculate total funded amount, track MTD and MoM changes.
 
-**1. Total funded amount: $435,757,075**
+#### Total funded amount: $435,757,075
 ```sql
 SELECT 
 	SUM(loan_amount) 
@@ -80,7 +81,7 @@ FROM financial_loan fl ;
 <br>
 <br>
 
-**2. Total funded amount MoM changes:** <br>
+#### Total funded amount MoM changes:
 Calculate monthly totals and Month-over-Month (MoM) changes using a subquery and window functions.
 <details>
 <summary style="color: lightblue;">▶▶Click here to show code ◀◀◀</summary>
