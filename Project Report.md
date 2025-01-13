@@ -1,14 +1,14 @@
 - [SQL functions used](-kpis)
+  	- [EXTRACT date](#total-applications-mom-changes)
 	- [GROUP BY](#total-applications-mom-changes)
    	- [Sub-query](#total-funded-amount-mom-changes)
+   	- [Window function](#total-received-amount-mom-changes)
 
 
 # Overview KPIs
 
 ### Total Loan Applications
 Calculate total loan applications, track MTD and MoM changes.
-
-<br>
 
 #### Total Applications: 38,576**
 	
@@ -144,7 +144,7 @@ Calculate total monthly amount received, track MTD and MoM changes.
 
 <br>
 
-**1. Total amount received: $473,070,933**
+#### Total amount received: $473,070,933
 	
 ```sql
 SELECT SUM(total_payment) AS total_received FROM financial_loan fl;
@@ -152,7 +152,7 @@ SELECT SUM(total_payment) AS total_received FROM financial_loan fl;
 <br>
 <br>
 
-**2. Total Applications MoM changes:** <br>
+#### Total received amount MoM changes:
 Calculate monthly totals and Month-over-Month (MoM) changes using a subquery and window functions.
 
 <details>
@@ -219,7 +219,7 @@ ORDER BY EXTRACT(MONTH from issue_date),TO_CHAR(issue_date,'Mon')
 ### Average interest rate
 Calculate the average interest rate across all loans and MoM changes.
 
-**1. Average interest rate: 12.05%**
+#### Average interest rate: 12.05%
 
 ```sql
 SELECT ROUND(AVG(int_rate)::NUMERIC,4) FROM financial_loan fl
@@ -227,7 +227,7 @@ SELECT ROUND(AVG(int_rate)::NUMERIC,4) FROM financial_loan fl
 <br>
 <br>
 
-**2. Average interest rate MoM:** <br>
+#### Average interest rate MoM:
 Calculate average interest and Month-over-Month (MoM) changes using a subquery and window LAG function.
 
 <details>
@@ -290,14 +290,14 @@ ORDER BY month_num, month
 ### Average Debt-to-Income Ratio (DTI)
 Evaluate the average DTI of borrowers, track Month-over-Month (MoM) fluctuations.
 
-**1. Average DTI: 13.33%**
+#### Average DTI: 13.33%
 ```sql
 SELECT ROUND(AVG(dti)::NUMERIC,4) AS avg_dti FROM financial_loan fl 
 ```
 <br>
 <br>
 
-**2. Average DTI MoM changes:** <br>
+#### Average DTI MoM changes:
 Calculate monthly average and Month-over-Month (MoM) changes using a subquery and window LAG function.
 
 <details>
