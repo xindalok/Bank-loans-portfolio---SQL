@@ -1,6 +1,6 @@
 ## What do we want to achieve with this report?
 
-To monitor and evaluate lending activities and performance effectively. <br>
+To monitor and evaluate lending activities and performance effectively. <br><br>
 By providing key loan metrics and insights into trends over time, the report aims to track portfolio health and support the development of data-driven lending strategies, ensuring informed decision-making and sustainable growth.
 
 
