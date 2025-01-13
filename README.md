@@ -2,7 +2,7 @@
 
 - [Overview KPIs](#overview-kpis)
 - [Orginal Dataset](#original-dataset-overview)
-  - [Issues to be addressed](#issues-to-be-addressed)
+  - [Issues with dataset](#issues-with-dataset)
 - [Data Preprocessing](#data-preprocessing)
 - [Processed Dataset](#processed-dataset-overview)
 
@@ -105,7 +105,7 @@ Categorize loan metrics by home ownership status to assess its influence on loan
 
 <img src="images/info.png" width="800" height="500" />
 
-### Issues to be Addressed:
+#### Issues with dataset
 
 <br>
 
