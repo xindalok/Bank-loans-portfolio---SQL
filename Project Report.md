@@ -3,8 +3,7 @@
 	- [GROUP BY](#total-applications-mom-changes)
    	- [Sub-query](#total-funded-amount-mom-changes)
    	- [Window function](#total-received-amount-mom-changes)
-   	- [LIMIT](#top-10-income-brackets-with-highest-%-of-bad-loans)
-
+   	- [LIMIT](#top-10-income-brackets-with-highest-of-bad-loans)
 
 # Overview KPIs
 
