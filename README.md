@@ -107,8 +107,6 @@ Categorize loan metrics by home ownership status to assess its influence on loan
 
 #### Issues with dataset
 
-<br>
-
 1. **Date Format Conversion:** The date columns are currently stored as VARCHAR and need to be converted to the proper DATE format.
 2. **Loan Term Extraction:** Loan terms are represented as string values (e.g., "36 months"), and the numerical component needs to be extracted for proper analysis.
 
