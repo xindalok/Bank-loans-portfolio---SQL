@@ -5,7 +5,7 @@
    	- [Window function](#total-received-amount-mom-changes)
    	- [LIMIT](#top-10-income-brackets-with-highest-percentage-of-bad-loans)
    	- [Cte](#employment-length-analysis)
-   	- [CASE WHEN](#good-loan-application-percentage)
+   	- [CASE WHEN](#employment-length-analysis)
 
 
 # Overview KPIs
