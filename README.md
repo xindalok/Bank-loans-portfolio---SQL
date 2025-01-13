@@ -3,7 +3,8 @@
 - [Overview KPIs](#overview-kpis)
 - [Orginal Dataset](#original-dataset-overview)
 - [Data Preprocessing](#data-preprocessing)
-- 
+- [Data Preprocessing](#processed-dataset-overview)
+
 ## What do we want to achieve with this report?
 
 To monitor and evaluate lending activities and performance effectively. <br><br>
@@ -171,6 +172,6 @@ SET term_months = CAST(SUBSTRING(term FROM 1 FOR 3) AS INTEGER);
 ------------------------------------------------------------------------------
 
 
-### Updated Dataset Overview
+### Processed Dataset Overview
 
 <img src="images/corrected.png" width="800" height="600" />
