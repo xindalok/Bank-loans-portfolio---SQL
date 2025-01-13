@@ -2,8 +2,9 @@
 
 - [Overview KPIs](#overview-kpis)
 - [Orginal Dataset](#original-dataset-overview)
+  - [Issues to be addressed](#issues-to-be-addressed:)
 - [Data Preprocessing](#data-preprocessing)
-- [Data Preprocessing](#processed-dataset-overview)
+- [Processed Dataset](#processed-dataset-overview)
 
 ## What do we want to achieve with this report?
 
