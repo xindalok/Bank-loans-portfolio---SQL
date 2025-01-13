@@ -8,7 +8,7 @@
 
 ## Project objective
 
-To monitor and evaluate lending activities and performance effectively. <br><br>
+To monitor and evaluate lending activities and performance effectively. <br>
 
 ## Project overview
 By providing key loan metrics and insights into trends over time, the report aims to track portfolio health and support the development of data-driven lending strategies, ensuring informed decision-making and sustainable growth.
