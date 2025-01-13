@@ -2,7 +2,7 @@
 
 - [Overview KPIs](#overview-kpis)
 - [Orginal Dataset](#original-dataset-overview)
-- [Data Preprocessing](#Data-Preprocessing)
+- [Data Preprocessing](#data-preprocessing)
 - 
 ## What do we want to achieve with this report?
 
@@ -108,7 +108,9 @@ Categorize loan metrics by home ownership status to assess its influence on loan
 2. **Loan Term Extraction:** Loan terms are represented as string values (e.g., "36 months"), and the numerical component needs to be extracted for proper analysis.
 
 ------------------------------------------------------------------------------
-### Data Preprocessing <br>
+### Data Preprocessing 
+
+<br>
 
 - **Date Columns**  
   - Ensured all relevant date columns in the `financial_loan` table were properly formatted as DATE values.  
