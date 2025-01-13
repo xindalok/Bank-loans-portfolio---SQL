@@ -5,6 +5,7 @@
    	- [Window function](#total-received-amount-mom-changes)
    	- [LIMIT](#top-10-income-brackets-with-highest-percentage-of-bad-loans)
    	- [Cte](#employment-length-analysis)
+   	- [CASE WHEN](#good-loan-application-percentage)
 
 
 # Overview KPIs
@@ -362,7 +363,8 @@ ORDER BY month_num, month
 # Good Loan v Bad Loan KPI’s
 
 ***Good Loan KPIs:***
-- **1. Good Loan Application Percentage: 86.18%** <br> Loan status of 'Fully Paid' and 'Current.'
+- ### Good Loan Application Percentage: 86.18% 
+- Loan status of 'Fully Paid' and 'Current.'
 
 <details>
 <summary style="color: lightblue;">▶▶Click here to show code ◀◀◀</summary>
@@ -515,7 +517,7 @@ WHERE loan_status = 'Current' OR loan_status = 'Fully Paid'
 ----------------------------
 ***Bad Loan KPIs:***
 
-**1. Bad Loan Application Percentage: 13.82%** <br>
+#### Bad Loan Application Percentage: 13.82%
 Loan status of 'Charged Off.'
 
 <details>
@@ -574,7 +576,8 @@ FROM financial_loan fl
 <br>
 <br>
 
-**2. Bad loans amount: $65,532,225** <br> Determining the total amount of funds disbursed as 'Bad Loans.'
+#### Bad loans amount: $65,532,225 
+Determining the total amount of funds disbursed as 'Bad Loans.'
 
 ``` sql
 SELECT 
@@ -680,7 +683,7 @@ ORDER BY address_state
 
 <img src="images/states.png" width="700" height="700" />
 
-### 3. Loan Term   
+### Loan Term   
 Show loan distribution based on term lengths, providing insights into the popularity and performance of different loan terms.  
 
 ```sql
