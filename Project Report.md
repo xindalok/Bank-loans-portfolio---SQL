@@ -1,5 +1,5 @@
 - [SQL functions used](-kpis)
-	- [GROUP BY](#2.-total-applications-mom-changes)
+	- [GROUP BY](#2.-total-applications-mom-changes:)
 
 
 # Overview KPIs
