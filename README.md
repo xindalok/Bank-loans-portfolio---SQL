@@ -1,3 +1,8 @@
+# Table Of Contents
+
+- [Overview KPIs](#overview-kpis)
+  - [Total Loan Applications](#total-loan-applications)
+  - 
 ## What do we want to achieve with this report?
 
 To monitor and evaluate lending activities and performance effectively. <br><br>
