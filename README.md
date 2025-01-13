@@ -105,7 +105,7 @@ Categorize loan metrics by home ownership status to assess its influence on loan
 
 <img src="images/info.png" width="800" height="500" />
 
-#### Issues to be Addressed:
+### Issues to be Addressed:
 
 <br>
 
