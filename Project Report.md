@@ -3,7 +3,7 @@
 	- [GROUP BY](#total-applications-mom-changes)
    	- [Sub-query](#total-funded-amount-mom-changes)
    	- [Window function](#total-received-amount-mom-changes)
-   	- [LIMIT](#top-10-income-brackets-with-highest-%-of-bad-loans)
+   	- [LIMIT](#.)
 
 # Overview KPIs
 
@@ -725,7 +725,9 @@ ORDER BY emp_length_trimmed, emp_length
 
 <img src="images/emp_l.png" width="900" height="300" />
 
+###### .
 #### Top 10 Income brackets with highest % of Bad loans
+
 How loan performance varies across different income brackets to assess the relationship between annual income and loan behavior.
 
 ``` sql
