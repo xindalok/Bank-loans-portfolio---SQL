@@ -2,7 +2,7 @@
 
 - [Overview KPIs](#overview-kpis)
 - [Orginal Dataset](#original-dataset-overview)
-  - [Issues to be addressed](#issues-to-be-addressed:)
+  - [Issues to be addressed](#issues-to-be-addressed)
 - [Data Preprocessing](#data-preprocessing)
 - [Processed Dataset](#processed-dataset-overview)
 
