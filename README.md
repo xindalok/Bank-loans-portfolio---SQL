@@ -1,12 +1,12 @@
 ### Table Of Contents
 
-- [Overview KPIs](#overview-kpis)
+- [Project objective](#project-objective-kpis)
 - [Orginal Dataset](#original-dataset-overview)
   - [Issues with dataset](#issues-with-dataset)
 - [Data Preprocessing](#data-preprocessing)
 - [Processed Dataset](#processed-dataset-overview)
 
-## What do we want to achieve with this report?
+## Project objective
 
 To monitor and evaluate lending activities and performance effectively. <br><br>
 By providing key loan metrics and insights into trends over time, the report aims to track portfolio health and support the development of data-driven lending strategies, ensuring informed decision-making and sustainable growth.
