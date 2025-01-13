@@ -1,5 +1,5 @@
 - [SQL functions used](-kpis)
-	- [SQL functions used]()
+	- [GROUP BY](#2.-total-applications-mom-changes)
 
 
 # Overview KPIs
@@ -9,7 +9,7 @@ Calculate total loan applications, track MTD and MoM changes.
 
 <br>
 
-**1. Total Applications: 38,576**
+#### 1. Total Applications: 38,576**
 	
 ```sql
 SELECT COUNT(DISTINCT id) AS total_applications 
@@ -19,7 +19,6 @@ FROM financial_loan fl;
 <br>
 
 #### 2. Total Applications MoM changes:
-<br>
 
 Month-over-month trend analysis using SQL window functions.
 
