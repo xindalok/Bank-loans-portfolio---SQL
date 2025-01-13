@@ -4,6 +4,8 @@
    	- [Sub-query](#total-funded-amount-mom-changes)
    	- [Window function](#total-received-amount-mom-changes)
    	- [LIMIT](#top-10-income-brackets-with-highest-percentage-of-bad-loans)
+   	- [Cte](#employment-length-analysis)
+
 
 # Overview KPIs
 
@@ -645,7 +647,7 @@ ORDER BY mtd_total_funded DESC
 ## Key loan metrics
 Analyse key loan metrics and trends, providing a clear understanding of lending operations and uncovering critical insights.
 
-### 1. Monthly Trends by Issue Date  
+### Monthly Trends by Issue Date  
 Identify seasonality and long-term lending trends.  
 
 ``` sql 
@@ -662,7 +664,7 @@ ORDER BY month_num, month
 <img src="images/monthly.png" width="700" height="300" />
 
 
-### 2. Regional by State  
+### Regional by State  
 Analyze lending activity across states to identify regions with significant activity and assess regional disparities.  
 
 ``` sql 
@@ -693,7 +695,7 @@ ORDER BY term
 ```
 <img src="images/term.png" width="700" height="100" />
 
-### 4. Employment Length Analysis  
+### Employment Length Analysis  
 How lending metrics vary among borrowers with different employment lengths to understand the impact of employment history on loan behavior.  
 
 ```sql
@@ -726,7 +728,7 @@ ORDER BY emp_length_trimmed, emp_length
 <img src="images/emp_l.png" width="900" height="300" />
 
 
-#### Top 10 Income brackets with highest percentage of Bad loans
+### Top 10 Income brackets with highest percentage of Bad loans
 
 How loan performance varies across different income brackets to assess the relationship between annual income and loan behavior.
 
