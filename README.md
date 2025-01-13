@@ -1,7 +1,8 @@
-# Bank Loans Report
+## What do we want to achieve with this report?
 
-Monitor and evaluate lending activities and performance through this Bank Loan report.<br>
-It will provide key loan metrics and insights into trends over time, helping to track portfolio health and inform data-driven lending strategies.
+To monitor and evaluate lending activities and performance effectively. <br>
+By providing key loan metrics and insights into trends over time, the report aims to track portfolio health and support the development of data-driven lending strategies, ensuring informed decision-making and sustainable growth.
+
 
 ------------------------------------------------------------------------
 
