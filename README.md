@@ -8,6 +8,10 @@
 - [Data Preprocessing](#data-preprocessing)
 - [Processed Dataset](#processed-dataset-overview)
 
+
+## Data
+[Dataset](https://raw.githubusercontent.com/xindalok/Bank-loans-portfolio---SQL/refs/heads/main/dataset/financial_loan.csv?token=GHSAT0AAAAAAC4NM6FJH4MLSOO27JZJULQQZ5VYWSA)
+
 ## Project objective
 
 To monitor and evaluate lending activities and performance effectively. <br>
