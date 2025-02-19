@@ -9,17 +9,17 @@
 - [Processed Dataset](#processed-dataset-overview)
 
 
-## Data
+### Data
 [Dataset](https://raw.githubusercontent.com/xindalok/Bank-loans-portfolio---SQL/refs/heads/main/dataset/financial_loan.csv?token=GHSAT0AAAAAAC4NM6FJH4MLSOO27JZJULQQZ5VYWSA)
 
-## Project objective
+### Project objective
 
 To monitor and evaluate lending activities and performance effectively. <br>
 
-## Project overview
+### Project overview
 By providing key loan metrics and insights into trends over time, the report aims to track portfolio health and support the development of data-driven lending strategies, ensuring informed decision-making and sustainable growth.
 
-## What needs to be done? 
+### What needs to be done? 
 The project will dentify critical metrics, such as delinquency rates, non-performing loans (NPLs) and/or customer information to provide actionable insights. 
 
 ------------------------------------------------------------------------
