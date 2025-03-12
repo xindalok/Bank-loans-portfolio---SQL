@@ -20,9 +20,9 @@
   - **Targeted Financial Products:** Consider offering **smaller, more accessible loans** for lower-income customers, as they have higher application volumes but lower individual risk.  
 
 ## **Next Steps for Analysis**
-1. **Explore the July Loan Surge:**  
-   - What drives the July peak? Are there external factors like tax refunds, seasonal expenses, or marketing campaigns?  
+1. **Interest Rate Sensitivity:**  
+   - Since loan repayment spikes in December but not in other high-interest months, is there a behavioral factor (e.g., bonuses, year-end debt clearing) at play? 
 2. **Investigate High-Income Defaults:**  
    - What factors contribute to their higher bad loan rate? Is it over-leverage, investment-related borrowing, or other behavioral trends?  
-3. **Interest Rate Sensitivity:**  
-   - Since loan repayment spikes in December but not in other high-interest months, is there a behavioral factor (e.g., bonuses, year-end debt clearing) at play?  
+3. **Explore the July Loan Surge:**  
+   - What drives the July peak? Are there external factors like tax refunds, seasonal expenses, or marketing campaigns? 
