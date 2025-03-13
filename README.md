@@ -1,4 +1,4 @@
-# Bank Loans Portfolio Analysis
+# Bank Loans Analysis
 
 ### Table Of Contents
 
